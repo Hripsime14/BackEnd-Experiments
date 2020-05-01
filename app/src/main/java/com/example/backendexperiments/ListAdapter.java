@@ -12,16 +12,16 @@ import androidx.annotation.Nullable;
 
 import java.util.List;
 
-public class ListAdapter extends ArrayAdapter<String> {
+public class ListAdapter extends ArrayAdapter<ResponseModel> {
     private Context context;
     private int resource;
-    private List<String> list;
+    private List<ResponseModel> list;
 
-    ListAdapter(@NonNull Context context, int resource, @NonNull List<String> response) {
-        super(context, resource, response);
+    ListAdapter(Context context, int resource, List<ResponseModel> responseModels) {
+        super(context, resource, responseModels);
         this.context = context;
         this.resource = resource;
-        this.list = response;
+        this.list = responseModels;
     }
 
     @NonNull
@@ -30,8 +30,10 @@ public class ListAdapter extends ArrayAdapter<String> {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(resource, null);
         }
-        TextView textView = convertView.findViewById(R.id.list_item_text);
-        textView.setText(list.get(position));
+        TextView textView = convertView.findViewById(R.id.list_item_text1);
+        textView.setText("1. " + list.get(position).getListName());
+        textView = convertView.findViewById(R.id.list_item_text2);
+        textView.setText("2. " +list.get(position).getDisplayName());
         return convertView;
     }
 }
