@@ -1,6 +1,6 @@
 package com.example.backendexperiments;
 
-public class ResponseModel {
+public class BooksListsModel {
     private String listName;
     private String displayName;
     private String listNameEncoded;
@@ -14,6 +14,22 @@ public class ResponseModel {
 
     public String getDisplayName() {
         return displayName;
+    }
+
+    public String getListNameEncoded() {
+        return listNameEncoded;
+    }
+
+    public String getOldest_published_date() {
+        return oldest_published_date;
+    }
+
+    public String getNewest_published_date() {
+        return newest_published_date;
+    }
+
+    public String getUpdated() {
+        return updated;
     }
 
     public void setListName(String listName) {

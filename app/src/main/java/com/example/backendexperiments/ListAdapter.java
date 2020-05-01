@@ -12,16 +12,16 @@ import androidx.annotation.Nullable;
 
 import java.util.List;
 
-public class ListAdapter extends ArrayAdapter<ResponseModel> {
+public class ListAdapter extends ArrayAdapter<BooksListsModel> {
     private Context context;
     private int resource;
-    private List<ResponseModel> list;
+    private List<BooksListsModel> list;
 
-    ListAdapter(Context context, int resource, List<ResponseModel> responseModels) {
-        super(context, resource, responseModels);
+    ListAdapter(Context context, int resource, List<BooksListsModel> booksListsModels) {
+        super(context, resource, booksListsModels);
         this.context = context;
         this.resource = resource;
-        this.list = responseModels;
+        this.list = booksListsModels;
     }
 
     @NonNull
@@ -34,6 +34,14 @@ public class ListAdapter extends ArrayAdapter<ResponseModel> {
         textView.setText("1. " + list.get(position).getListName());
         textView = convertView.findViewById(R.id.list_item_text2);
         textView.setText("2. " +list.get(position).getDisplayName());
+        textView = convertView.findViewById(R.id.list_item_text3);
+        textView.setText("3. " +list.get(position).getListNameEncoded());
+        textView = convertView.findViewById(R.id.list_item_text4);
+        textView.setText("4. " +list.get(position).getOldest_published_date());
+        textView = convertView.findViewById(R.id.list_item_text5);
+        textView.setText("5. " +list.get(position).getNewest_published_date());
+        textView = convertView.findViewById(R.id.list_item_text6);
+        textView.setText("6. " +list.get(position).getUpdated());
         return convertView;
     }
 }
