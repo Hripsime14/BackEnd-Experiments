@@ -22,7 +22,7 @@ import com.example.backendexperiments.Util.Parser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {//lists/overview/2013-05-22
+public class MainActivity extends AppCompatActivity {
 //    String urlString = "https://api.nytimes.com/svc/books/v3/lists/names.json?api-key=ryOX7WaLMNT9uclXL53TkYHMcYkQTYFa";
     String urlString;
     MyRequestQueue myQueue;
@@ -83,11 +83,11 @@ public class MainActivity extends AppCompatActivity {//lists/overview/2013-05-22
     }
 
     public void createListStuff() {
-        if (adapter == null) adapter = new ListAdapter(context, R.layout.simple_list_item, booksListsModelList/*new String[]{"Lion", "Tiger", "Monkey"}*/);
+        if (adapter == null) adapter = new ListAdapter(context, R.layout.simple_list_item, booksListsModelList);
         listView.setAdapter(adapter);
 
     }
-    
+
     public  class MakeRequest extends AsyncTask<String, Void, String> {
         Context context;
         MakeRequest(Context context) {
