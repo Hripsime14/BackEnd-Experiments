@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BackEnd Experiments</string>
+    <string name="selectDate">Select the Date</string>
+    <string name="ok">OK</string>
 </resources>
