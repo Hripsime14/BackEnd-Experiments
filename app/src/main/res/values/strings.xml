@@ -2,4 +2,9 @@
     <string name="app_name">BackEnd Experiments</string>
     <string name="selectDate">Select the Date</string>
     <string name="ok">OK</string>
+    <string name="books_overview">Books Overview</string>
+    <string name="books_list">Books list</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
 </resources>

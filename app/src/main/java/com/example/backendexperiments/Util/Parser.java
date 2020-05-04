@@ -2,8 +2,8 @@ package com.example.backendexperiments.Util;
 
 import android.util.Log;
 
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.example.backendexperiments.BooksListsModel;
+import com.example.backendexperiments.Models.BooksListsModel;
+import com.example.backendexperiments.Models.BooksOverviewModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,11 +47,11 @@ public class Parser {
         return booksListsModels;
     }
 
-    public List<BooksListsModel> parseListsWithDate(String response) {
+    public List<BooksOverviewModel> parseListsWithDate(String response) {
         JSONObject jsonObject;
         JSONArray jsonArray;
-        BooksListsModel model;
-        List<BooksListsModel> booksListsModels = new ArrayList<>();
+        BooksOverviewModel model;
+        List<BooksOverviewModel> booksListsModels = new ArrayList<>();
 
         try {
             jsonObject = new JSONObject(response);
@@ -62,20 +62,16 @@ public class Parser {
             jsonArray = (JSONArray) object.get("books");
 
             for (int i = 0; i < jsonArray.length(); i++) {
-                model = new BooksListsModel();
+                model = new BooksOverviewModel();
                 JSONObject obj = jsonArray.getJSONObject(i);
                 if (obj.has("author"))
-                    if (obj.has("title"))
-                        model.setUpdated(obj.getString("title"));
-                    model.setListName(obj.getString("author"));
-                if (obj.has("contributor"))
-                    model.setDisplayName(obj.getString("contributor"));
+                    model.setAuthor(obj.getString("author"));
+                if (obj.has("title"))
+                    model.setTitle(obj.getString("title"));
                 if (obj.has("created_date"))
-                    model.setListNameEncoded(obj.getString("created_date"));
+                    model.setCreatedDate(obj.getString("created_date"));
                 if (obj.has("description"))
-                    model.setOldest_published_date(obj.getString("description"));
-                if (obj.has("price"))
-                    model.setNewest_published_date(obj.getString("price"));
+                    model.setDescription(obj.getString("description"));
                 booksListsModels.add(model);
             }
         } catch (JSONException e) {

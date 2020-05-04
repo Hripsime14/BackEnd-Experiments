@@ -1,4 +1,4 @@
-package com.example.backendexperiments;
+package com.example.backendexperiments.Models;
 
 public class BooksListsModel {
     private String listName;

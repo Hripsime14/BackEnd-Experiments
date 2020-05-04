@@ -1,4 +1,4 @@
-package com.example.backendexperiments;
+package com.example.backendexperiments.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.backendexperiments.Models.BooksListsModel;
+import com.example.backendexperiments.R;
+
 import java.util.List;
 
 public class ListAdapter extends ArrayAdapter<BooksListsModel> {
@@ -17,7 +20,7 @@ public class ListAdapter extends ArrayAdapter<BooksListsModel> {
     private int resource;
     private List<BooksListsModel> list;
 
-    ListAdapter(Context context, int resource, List<BooksListsModel> booksListsModels) {
+    public ListAdapter(Context context, int resource, List<BooksListsModel> booksListsModels) {
         super(context, resource, booksListsModels);
         this.context = context;
         this.resource = resource;
